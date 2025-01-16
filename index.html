@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Electronic - Professional Electrical Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        body {
+            background: #000;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Particle Animation Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 165, 0, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 1.5rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 165, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #ffa500;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: radial-gradient(circle at center, rgba(255, 165, 0, 0.1) 0%, rgba(0, 0, 0, 0.9) 70%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s;
+            color: #ffa500;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s;
+            color: #fff;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: rgba(20, 20, 20, 0.9);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ffa500;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .service-card {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 165, 0, 0.2);
+        }
+
+        .service-card h3 {
+            color: #ffa500;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: rgba(20, 20, 20, 0.8);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-info {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .contact-info h3 {
+            color: #ffa500;
+            margin-bottom: 1rem;
+        }
+
+        /* Social Media */
+        .social-links {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .social-links a {
+            background: rgba(255, 165, 0, 0.2);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255, 165, 0, 0.3);
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            background: rgba(255, 165, 0, 0.4);
+        }
+
+        /* Sri Lankan Badge */
+        .sri-lanka-badge {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .social-links {
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 2rem;
+            }
+            
+            .sri-lanka-badge {
+                position: static;
+                margin: 2rem auto;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="social-links">
+        <a href="https://wa.me/94723283588" title="WhatsApp">WA</a>
+        <a href="#facebook" title="Facebook">FB</a>
+        <a href="#youtube" title="YouTube">YT</a>
+        <a href="#youtube" title="YouTube">Chat</a>
+    </div>
+
+    <section id="home" class="hero">
+        <div>
+            <h1 class="animate__animated animate__fadeInDown">Alpha Electronic</h1>
+            <p class="animate__animated animate__fadeInUp">Professional Electrical Solutions in Sri Lanka</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Electronic Solar System Installation</h3>
+                <p>Professional solar panel installation with cutting-edge technology and AI-powered efficiency monitoring.</p>
+            </div>
+            <div class="service-card">
+                <h3>CCTV System Installation</h3>
+                <p>Advanced security solutions with smart surveillance capabilities and remote monitoring features.</p>
+            </div>
+            <div class="service-card">
+                <h3>House Wiring</h3>
+                <p>Complete electrical solutions for residential properties, ensuring safety and efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p>R.D S S Ranasingha</p>
+                <p>Rantetikanda, Panagamuwa, Kurunegala</p>
+                <p>Phone: 072-3283588</p>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="sri-lanka-badge">
+        Proudly Serving Sri Lanka 🇱🇰
+    </div>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-js');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 3 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
+</body>
+</html>
+
+
+
